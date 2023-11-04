@@ -43,41 +43,49 @@ public class StatsFragment extends androidx.fragment.app.Fragment {
 
     //Just needed to setup the chart, once setup does not need to be called again
     private void setupChart(PieChart chart) {
-        chart.setDrawHoleEnabled(true);
+        //General Format
         chart.setUsePercentValues(true);
-        chart.setEntryLabelTextSize(16);
-        chart.setEntryLabelColor(Color.BLACK);
+        chart.setDrawRoundedSlices(true);
+        chart.getDescription().setEnabled(false);
+        //Center Hole
+        chart.setDrawHoleEnabled(true);
         chart.setCenterText("Accuracy");
         chart.setCenterTextSize(24);
-        chart.setCenterTextColor(Color.BLACK);
-        chart.getDescription().setEnabled(false);
+        chart.setCenterTextColor(Color.WHITE);
+        chart.setTransparentCircleRadius(0);
+        chart.setHoleRadius(40);
+        chart.setHoleColor(0);
+        //Entries
+        chart.setEntryLabelTextSize(20);
+        chart.setEntryLabelColor(Color.WHITE);
     }
     //Can be modified to be public
     //Then we can create a ArrayList that stores the current session info
     //To then update this dynamically as the user progresses
     //Then we store all previous data in Arraylists as well
     private void setChartData(PieChart chart) {
+        //Add entries (makes, misses)
         ArrayList<PieEntry> entries = new ArrayList<>();
         entries.add(new PieEntry(60, "Made"));
         entries.add(new PieEntry(40, "Missed"));
 
+        //Setting colors
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(ContextCompat.getColor(getContext(), R.color.accent));
         colors.add(ContextCompat.getColor(getContext(), R.color.darkSecondary));
-
-        PieDataSet dataSet = new PieDataSet(entries, "Accuracy");
+        PieDataSet dataSet = new PieDataSet(entries, "Shot Accuracy");
         dataSet.setColors(colors);
 
         PieData data = new PieData(dataSet);
         data.setDrawValues(true);
         data.setValueFormatter(new PercentFormatter(chart));
-        data.setValueTextSize(22f);
-        data.setValueTextColor(Color.BLACK);
+        data.setValueTextSize(26f);
+        data.setValueTextColor(Color.WHITE);
 
         chart.setData(data);
         chart.invalidate();
 
-        chart.animateY(1000, Easing.EaseInOutQuad);
+        chart.animateY(1000, Easing.EaseInOutCirc);
     }
 
     @Override
