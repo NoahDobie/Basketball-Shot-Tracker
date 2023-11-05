@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:labelFor="@id/shotsMissed"
         android:text="@string/shots_missed"
-        android:textColor="@color/white"
+        android:textColor="@color/darkSecondary"
         android:textSize="26sp"
         android:textStyle="italic"
         app:autoSizeMaxTextSize="28sp"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:labelFor="@id/totalShots"
         android:text="@string/total_shots"
-        android:textColor="@color/white"
+        android:textColor="@color/darkSecondary"
         android:textSize="26sp"
         android:textStyle="italic"
         app:autoSizeMaxTextSize="28sp"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:labelFor="@id/shotsMade"
         android:text="Shots Made"
-        android:textColor="@color/white"
+        android:textColor="@color/darkSecondary"
         android:textSize="26sp"
         android:textStyle="italic"
         app:autoSizeMaxTextSize="28sp"
@@ -105,5 +105,17 @@
         app:layout_constraintEnd_toEndOf="@+id/shotsMade"
         app:layout_constraintStart_toStartOf="@+id/shotsMade"
         app:layout_constraintTop_toBottomOf="@+id/shotsMade" />
+
+    <View
+        style="@style/VerticalDivider"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/accent"
+        app:layout_constraintBottom_toTopOf="@+id/totalShots"
+        app:layout_constraintEnd_toStartOf="@+id/shotsMissedLabel"
+        app:layout_constraintStart_toEndOf="@+id/shotsMadeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/statsChart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
