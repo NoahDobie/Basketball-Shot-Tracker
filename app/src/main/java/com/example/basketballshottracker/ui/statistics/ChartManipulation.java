@@ -26,7 +26,7 @@ public class ChartManipulation {
         //General Format
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
-        chart.setDrawRoundedSlices(false);
+        chart.setDrawRoundedSlices(true);
         chart.getLegend().setEnabled(false);
         chart.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         //Center Hole
