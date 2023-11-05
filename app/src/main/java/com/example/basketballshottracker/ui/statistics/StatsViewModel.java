@@ -5,4 +5,5 @@ package com.example.basketballshottracker.ui.statistics;
 public class StatsViewModel extends androidx.lifecycle.ViewModel {
 
 
+
 }

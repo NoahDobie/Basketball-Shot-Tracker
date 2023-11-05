@@ -1,7 +1,11 @@
 package com.example.basketballshottracker.ui.statistics;
 
+import static android.graphics.Typeface.BOLD;
+
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
@@ -24,9 +28,10 @@ public class ChartManipulation {
         chart.getDescription().setEnabled(false);
         chart.setDrawRoundedSlices(false);
         chart.getLegend().setEnabled(false);
+        chart.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         //Center Hole
         chart.setDrawHoleEnabled(true);
-        chart.setCenterText("Accuracy");
+        chart.setCenterText(context.getString(R.string.accuracy_stats));
         chart.setCenterTextSize(24);
         chart.setCenterTextColor(Color.WHITE);
         chart.setTransparentCircleRadius(0);
@@ -34,6 +39,7 @@ public class ChartManipulation {
         chart.setHoleColor(0);
         //Entries
         chart.setEntryLabelTextSize(20);
+        chart.setEntryLabelTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
         chart.setEntryLabelColor(Color.WHITE);
     }
 
@@ -54,6 +60,7 @@ public class ChartManipulation {
         data.setDrawValues(true);
         data.setValueFormatter(new PercentFormatter(chart));
         data.setValueTextSize(26f);
+        data.setValueTypeface(Typeface.defaultFromStyle(BOLD));
         data.setValueTextColor(Color.WHITE);
 
         chart.setData(data);

@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".ui.statistics.StatsFragment">
 
+    <TextView
+        android:id="@+id/shotsMissedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/shotsMissed"
+        android:text="@string/shots_missed"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="italic"
+        app:autoSizeMaxTextSize="28sp"
+        app:autoSizeMinTextSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/shotsMissed"
+        app:layout_constraintStart_toStartOf="@+id/shotsMissed"
+        app:layout_constraintTop_toBottomOf="@+id/shotsMissed" />
+
+    <TextView
+        android:id="@+id/totalShotsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/totalShots"
+        android:text="@string/total_shots"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="italic"
+        app:autoSizeMaxTextSize="28sp"
+        app:autoSizeMinTextSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/totalShots"
+        app:layout_constraintStart_toStartOf="@+id/totalShots"
+        app:layout_constraintTop_toBottomOf="@+id/totalShots" />
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/statsChart"
         android:layout_width="412dp"
@@ -22,8 +52,12 @@
         android:layout_width="125dp"
         android:layout_height="35dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statsChart" />
 
@@ -31,20 +65,45 @@
         android:id="@+id/totalShots"
         android:layout_width="125dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="34sp"
+        app:autoSizeMinTextSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shotsMissedLabel" />
 
     <TextView
         android:id="@+id/shotsMissed"
         android:layout_width="125dp"
         android:layout_height="35dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statsChart" />
+
+    <TextView
+        android:id="@+id/shotsMadeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/shotsMade"
+        android:text="Shots Made"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="italic"
+        app:autoSizeMaxTextSize="28sp"
+        app:autoSizeMinTextSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/shotsMade"
+        app:layout_constraintStart_toStartOf="@+id/shotsMade"
+        app:layout_constraintTop_toBottomOf="@+id/shotsMade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
