@@ -51,8 +51,8 @@ public class HistoryFragment extends Fragment {
         // contains key value pairs where the key is the date and the integer array contains the values
         // the values will be in the order of shots made, shots missed, and shots taken
         Dictionary<String, int[]> dict = new Hashtable<>();
-        dict.put("November 1st", new int[]{13, 14, 14});
-        dict.put("November 3rd", new int[]{5, 10, 20});
+        dict.put("November 1st", new int[]{13, 14, 27});
+        dict.put("November 3rd", new int[]{5, 10, 15});
         dict.put("November 4th", new int[]{1, 2, 3});
 
         createGroupList(dict);
@@ -80,8 +80,6 @@ public class HistoryFragment extends Fragment {
         });
 
 
-        final TextView textView = binding.textHistory;
-        historyViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
 
 
@@ -96,25 +94,34 @@ public class HistoryFragment extends Fragment {
         while (keys.hasMoreElements()){
             for (String group : groupList) {
                 String key = keys.nextElement();
-                if (group.equals(key))
+                if (group.equals(key)) {
                     loadChild(Arrays.toString((int[]) dict.get(key)).split("[\\[\\]]")[1].split(", "));
-                //if (group.equals("Session 1")) {
-                //    loadChild(session1stat);
+                }
                 mCollection.put(group, childList);
             }
-            //else if (group.equals("Session 2")) {
-            //    loadChild(session2stat);
-            //}
 
         }
 
     }
 
     // Find a way to label where the data is from??
+    // Goofy ass labels
     private void loadChild(String[] sessionstats) {
         childList = new ArrayList<>();
+        int i = 0;
+        while (i < 3){
         for (String model : sessionstats) {
-            childList.add(model);
+                if (i == 0){
+                    childList.add("Shots made: " + model);
+                }
+                else if (i == 1){
+                    childList.add("Shots missed: " + model);
+                }
+                else if (i == 2){
+                    childList.add("Shots taken: " + model);
+                }
+            i++;
+            }
         }
     }
 
