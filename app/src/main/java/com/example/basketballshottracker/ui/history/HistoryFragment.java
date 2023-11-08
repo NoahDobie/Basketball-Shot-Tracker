@@ -70,14 +70,6 @@ public class HistoryFragment extends Fragment {
                 lastExpandedPosition = i;
             }
         });
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                String selected = expandableListAdapter.getChild(i, i1).toString();
-                Toast.makeText(getActivity().getApplicationContext(), "Selected: " + selected, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
 
 
         return root;
