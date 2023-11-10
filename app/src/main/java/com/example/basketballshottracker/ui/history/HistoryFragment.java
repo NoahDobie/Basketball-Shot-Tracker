@@ -19,6 +19,7 @@ import com.example.basketballshottracker.databinding.FragmentHistoryBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -51,9 +52,9 @@ public class HistoryFragment extends Fragment {
         // contains key value pairs where the key is the date and the integer array contains the values
         // the values will be in the order of shots made, shots missed, and shots taken
         Dictionary<String, int[]> dict = new Hashtable<>();
-        dict.put("November 1st", new int[]{13, 14, 27});
-        dict.put("November 3rd", new int[]{5, 10, 15});
-        dict.put("November 4th", new int[]{1, 2, 3});
+        dict.put("November 5th", new int[]{13, 14, 27});
+        dict.put("November 6th", new int[]{5, 10, 15});
+        dict.put("November 7th", new int[]{1, 2, 3});
 
         createGroupList(dict);
         createCollection(dict);
