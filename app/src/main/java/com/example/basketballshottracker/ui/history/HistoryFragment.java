@@ -1,3 +1,4 @@
+//COMP 3450: Saifullah Chandio T00657965, Jacob Harris T00657013, Noah Dobie T00661661
 package com.example.basketballshottracker.ui.history;
 
 import android.content.Context;
@@ -33,10 +34,7 @@ public class HistoryFragment extends Fragment {
     Map<String, List<String>> mCollection;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
-
     private FragmentHistoryBinding binding;
-
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,15 +50,16 @@ public class HistoryFragment extends Fragment {
         // contains key value pairs where the key is the date and the integer array contains the values
         // the values will be in the order of shots made, shots missed, and shots taken
         Dictionary<Date, int[]> dict1 = new Hashtable<>();
-        dict1.put(new Date(123,10,5), new int[]{13, 14, 27});
+        dict1.put(new Date(123,10,2), new int[]{13, 14, 27});
         dict1.put(new Date(123,10,6), new int[]{5, 10, 15});
         dict1.put(new Date(123,10,7), new int[]{1, 2, 3});
+        dict1.put(new Date(123,10,12), new int[]{21, 12, 33});
 
         //Still not in order
         // Changes dates from date type to string because I'm too scared to change
         // how the rest of the functionality works.
         Enumeration<Date> enu = dict1.keys();
-        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd, yyyy 'at' HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("EEE MMM d, yyyy");
 
         Dictionary<String, int[]> dict = new Hashtable<>();
         while (enu.hasMoreElements()){
@@ -83,11 +82,7 @@ public class HistoryFragment extends Fragment {
                 lastExpandedPosition = i;
             }
         });
-
-
         return root;
-
-
     }
 
     // Hopefully we can read from a dictionary now
@@ -117,13 +112,13 @@ public class HistoryFragment extends Fragment {
         while (i < 3){
         for (String model : sessionstats) {
                 if (i == 0){
-                    childList.add("Shots made: " + model);
+                    childList.add("Shots Made: " + model);
                 }
                 else if (i == 1){
-                    childList.add("Shots missed: " + model);
+                    childList.add("Shots Missed: " + model);
                 }
                 else if (i == 2){
-                    childList.add("Shots taken: " + model);
+                    childList.add("Shots Taken: " + model);
                 }
             i++;
             }
