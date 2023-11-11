@@ -17,6 +17,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.basketballshottracker.R;
 import com.example.basketballshottracker.databinding.FragmentHistoryBinding;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -51,10 +53,22 @@ public class HistoryFragment extends Fragment {
         // Creating a dictionary to hold dummy data
         // contains key value pairs where the key is the date and the integer array contains the values
         // the values will be in the order of shots made, shots missed, and shots taken
+        Dictionary<Date, int[]> dict1 = new Hashtable<>();
+        dict1.put(new Date(123,10,5), new int[]{13, 14, 27});
+        dict1.put(new Date(123,10,6), new int[]{5, 10, 15});
+        dict1.put(new Date(123,10,7), new int[]{1, 2, 3});
+
+        //Still not in order
+        // Changes dates from date type to string because I'm too scared to change
+        // how the rest of the functionality works.
+        Enumeration<Date> enu = dict1.keys();
+        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd, yyyy 'at' HH:mm");
+
         Dictionary<String, int[]> dict = new Hashtable<>();
-        dict.put("November 5th", new int[]{13, 14, 27});
-        dict.put("November 6th", new int[]{5, 10, 15});
-        dict.put("November 7th", new int[]{1, 2, 3});
+        while (enu.hasMoreElements()){
+            Date key = enu.nextElement();
+            dict.put(dateFormat.format(key), dict1.get(key));
+        }
 
         createGroupList(dict);
         createCollection(dict);
