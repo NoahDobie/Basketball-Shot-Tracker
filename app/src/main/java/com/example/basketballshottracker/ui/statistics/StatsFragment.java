@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,14 +15,11 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.tabs.TabLayout;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.concurrent.TimeUnit;
 
 public class StatsFragment extends androidx.fragment.app.Fragment {
 
