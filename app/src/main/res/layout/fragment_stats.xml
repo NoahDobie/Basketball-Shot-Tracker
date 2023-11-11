@@ -10,6 +10,8 @@
         android:id="@+id/shotsMissedLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="32dp"
         android:labelFor="@id/shotsMissed"
         android:text="@string/shots_missed"
         android:textColor="@color/darkSecondary"
@@ -17,14 +19,14 @@
         android:textStyle="italic"
         app:autoSizeMaxTextSize="28sp"
         app:autoSizeMinTextSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/shotsMissed"
-        app:layout_constraintStart_toStartOf="@+id/shotsMissed"
-        app:layout_constraintTop_toBottomOf="@+id/shotsMissed" />
+        app:layout_constraintBottom_toTopOf="@+id/totalShots"
+        app:layout_constraintStart_toEndOf="@+id/view" />
 
     <TextView
         android:id="@+id/totalShotsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:labelFor="@id/totalShots"
         android:text="@string/total_shots"
         android:textColor="@color/darkSecondary"
@@ -32,40 +34,39 @@
         android:textStyle="italic"
         app:autoSizeMaxTextSize="28sp"
         app:autoSizeMinTextSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/totalShots"
-        app:layout_constraintStart_toStartOf="@+id/totalShots"
-        app:layout_constraintTop_toBottomOf="@+id/totalShots" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/statsChart"
-        android:layout_width="412dp"
-        android:layout_height="327dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
     <TextView
         android:id="@+id/shotsMade"
         android:layout_width="125dp"
         android:layout_height="35dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
         android:ems="10"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statsChart" />
+        app:layout_constraintBottom_toTopOf="@+id/shotsMadeLabel"
+        app:layout_constraintEnd_toEndOf="@+id/shotsMadeLabel"
+        app:layout_constraintStart_toStartOf="@+id/shotsMadeLabel" />
 
     <TextView
         android:id="@+id/totalShots"
         android:layout_width="125dp"
         android:layout_height="35dp"
-        android:layout_marginTop="50dp"
         android:ems="10"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -73,28 +74,29 @@
         android:textStyle="bold"
         app:autoSizeMaxTextSize="34sp"
         app:autoSizeMinTextSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shotsMissedLabel" />
+        app:layout_constraintBottom_toTopOf="@+id/totalShotsLabel"
+        app:layout_constraintEnd_toEndOf="@+id/totalShotsLabel"
+        app:layout_constraintStart_toStartOf="@+id/totalShotsLabel" />
 
     <TextView
         android:id="@+id/shotsMissed"
         android:layout_width="125dp"
         android:layout_height="35dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
         android:ems="10"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statsChart" />
+        app:layout_constraintBottom_toTopOf="@+id/shotsMissedLabel"
+        app:layout_constraintEnd_toEndOf="@+id/shotsMissedLabel"
+        app:layout_constraintStart_toStartOf="@+id/shotsMissedLabel" />
 
     <TextView
         android:id="@+id/shotsMadeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
         android:labelFor="@id/shotsMade"
         android:text="Shots Made"
         android:textColor="@color/darkSecondary"
@@ -102,21 +104,21 @@
         android:textStyle="italic"
         app:autoSizeMaxTextSize="28sp"
         app:autoSizeMinTextSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/shotsMade"
-        app:layout_constraintStart_toStartOf="@+id/shotsMade"
-        app:layout_constraintTop_toBottomOf="@+id/shotsMade" />
+        app:layout_constraintBottom_toTopOf="@+id/totalShots"
+        app:layout_constraintEnd_toStartOf="@+id/view" />
 
     <View
+        android:id="@+id/view"
         style="@style/VerticalDivider"
         android:layout_width="4dp"
         android:layout_height="0dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/accent"
         app:layout_constraintBottom_toTopOf="@+id/totalShots"
-        app:layout_constraintEnd_toStartOf="@+id/shotsMissedLabel"
-        app:layout_constraintStart_toEndOf="@+id/shotsMadeLabel"
-        app:layout_constraintTop_toBottomOf="@+id/statsChart" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shotsMissed"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
