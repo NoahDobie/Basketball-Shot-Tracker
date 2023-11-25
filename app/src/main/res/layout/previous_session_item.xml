@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/historyCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/darkSecondary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/sessionDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="DATE"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/expandedChevron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rotation="90"
+                android:src="@drawable/baseline_chevron_right_24"
+                app:layout_constraintBottom_toTopOf="@+id/expandableLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/accent"
+                android:contentDescription="Chevron to indicate if item is expanded or not." />
+
+            <ImageView
+                android:id="@+id/highlightStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Star to indicate highest average."
+                android:src="@drawable/baseline_star_border_24"
+                app:layout_constraintBottom_toTopOf="@+id/expandableLayout"
+                app:layout_constraintStart_toEndOf="@+id/sessionDateTextView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#FFC107" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expandableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sessionDateTextView">
+
+                <View
+                    android:id="@+id/box4"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/history_rectangle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/totalShotsTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/box4"
+                    app:layout_constraintStart_toStartOf="@+id/box4"
+                    app:layout_constraintTop_toTopOf="@+id/box4" />
+
+                <TextView
+                    android:id="@+id/totalShotsLabel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/shotsMade"
+                    android:text="@string/total_shots"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/box4"
+                    app:layout_constraintEnd_toEndOf="@+id/box4"
+                    app:layout_constraintStart_toStartOf="@+id/box4"
+                    app:layout_constraintTop_toBottomOf="@+id/totalShotsTextView" />
+
+                <View
+                    android:id="@+id/box6"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/history_rectangle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/previousMakesTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/box6"
+                    app:layout_constraintStart_toStartOf="@+id/box6"
+                    app:layout_constraintTop_toTopOf="@+id/box6" />
+
+                <TextView
+                    android:id="@+id/shotsMadeLabel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/shotsMade"
+                    android:text="@string/shots_made"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/box6"
+                    app:layout_constraintEnd_toEndOf="@+id/box6"
+                    app:layout_constraintStart_toStartOf="@+id/box6"
+                    app:layout_constraintTop_toBottomOf="@+id/previousMakesTextView" />
+
+                <View
+                    android:id="@+id/box"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/history_rectangle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/box4"
+                    app:layout_constraintStart_toEndOf="@+id/box6"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/shotsMissedLabel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/shotsMade"
+                    android:text="@string/shots_missed"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/box"
+                    app:layout_constraintEnd_toEndOf="@+id/box"
+                    app:layout_constraintStart_toStartOf="@+id/box"
+                    app:layout_constraintTop_toBottomOf="@+id/previousMissesTextView" />
+
+                <TextView
+                    android:id="@+id/previousMissesTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/box"
+                    app:layout_constraintStart_toStartOf="@+id/box"
+                    app:layout_constraintTop_toTopOf="@+id/box" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
