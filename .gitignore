@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+/opencv/build/outputs/apk/androidTest/debug/
+/Basketball Shot Tracker.zip
