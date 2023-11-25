@@ -9,5 +9,6 @@
     <string name="accuracy_stats">Accuracy</string>
     <string name="InstructionsText">1. Set up your camera so that it faces your desired basketball hoop.\n\n2. Press the start shooting button. \n\n3. Select the area that the hoop is in. \n\n4. Start shooting!</string>
     <string name="InstructionsTitle">Instructions Before Shooting</string>
-    <string name="HomeShootingButton">Start Shooting</string>
+    <string name="HomeShootingButton_Start">Start Shooting</string>
+    <string name="HomeShootingButton_Stop">Stop Shooting</string>
 </resources>

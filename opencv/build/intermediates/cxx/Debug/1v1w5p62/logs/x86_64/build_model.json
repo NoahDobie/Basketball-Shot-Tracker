@@ -126,7 +126,11 @@
         "rootBuildGradleFolder": "C:\\Users\\Noah\u0027s MSI\\AndroidStudioProjects\\Basketball-Shot-Tracker",
         "sdkFolder": "C:\\Users\\Noah\u0027s MSI\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
+<<<<<<< HEAD
         "ideBuildTargetAbi": "x86_64,arm64-v8a",
+=======
+        "ideBuildTargetAbi": "x86_64,x86",
+>>>>>>> origin/main
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
