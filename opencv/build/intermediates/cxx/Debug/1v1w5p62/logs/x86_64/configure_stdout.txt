@@ -12,4 +12,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Noah's MSI/AndroidStudioProjects/Basketball-Shot-Tracker/opencv/.cxx/Debug/1v1w5p62/x86_64
+-- Build files have been written to: C:/Users/Noah's MSI/OneDrive/Documents/GitHub/Basketball-Shot-Tracker/opencv/.cxx/Debug/1v1w5p62/x86_64

@@ -7,36 +7,16 @@
     tools:context=".ui.statistics.StatsFragment">
 
     <TextView
-        android:id="@+id/shotsMissedLabel"
+        android:id="@+id/noEntriesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="32dp"
-        android:labelFor="@id/shotsMissed"
-        android:text="@string/shots_missed"
-        android:textColor="@color/darkSecondary"
-        android:textSize="26sp"
-        android:textStyle="italic"
-        app:autoSizeMaxTextSize="28sp"
-        app:autoSizeMinTextSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/totalShots"
-        app:layout_constraintStart_toEndOf="@+id/view" />
-
-    <TextView
-        android:id="@+id/totalShotsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:labelFor="@id/totalShots"
-        android:text="@string/total_shots"
-        android:textColor="@color/darkSecondary"
-        android:textSize="26sp"
-        android:textStyle="italic"
-        app:autoSizeMaxTextSize="28sp"
-        app:autoSizeMinTextSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/No_Entries"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/statsChart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/statsChart" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/statsChart"
@@ -44,81 +24,190 @@
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-    <TextView
-        android:id="@+id/shotsMade"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
-        android:ems="10"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/shotsMadeLabel"
-        app:layout_constraintEnd_toEndOf="@+id/shotsMadeLabel"
-        app:layout_constraintStart_toStartOf="@+id/shotsMadeLabel" />
-
-    <TextView
-        android:id="@+id/totalShots"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
-        android:ems="10"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:autoSizeMaxTextSize="34sp"
-        app:autoSizeMinTextSize="26sp"
-        app:layout_constraintBottom_toTopOf="@+id/totalShotsLabel"
-        app:layout_constraintEnd_toEndOf="@+id/totalShotsLabel"
-        app:layout_constraintStart_toStartOf="@+id/totalShotsLabel" />
-
-    <TextView
-        android:id="@+id/shotsMissed"
-        android:layout_width="125dp"
-        android:layout_height="35dp"
-        android:ems="10"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/shotsMissedLabel"
-        app:layout_constraintEnd_toEndOf="@+id/shotsMissedLabel"
-        app:layout_constraintStart_toStartOf="@+id/shotsMissedLabel" />
-
-    <TextView
-        android:id="@+id/shotsMadeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:labelFor="@id/shotsMade"
-        android:text="Shots Made"
-        android:textColor="@color/darkSecondary"
-        android:textSize="26sp"
-        android:textStyle="italic"
-        app:autoSizeMaxTextSize="28sp"
-        app:autoSizeMinTextSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/totalShots"
-        app:layout_constraintEnd_toStartOf="@+id/view" />
-
-    <View
-        android:id="@+id/view"
-        style="@style/VerticalDivider"
-        android:layout_width="4dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/accent"
-        app:layout_constraintBottom_toTopOf="@+id/totalShots"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/shotsMissed"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/totalCardView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/stats_rectangle"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/totalShots"
+                    android:layout_width="125dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/totalShotsLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/totalShotsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:labelFor="@id/shotsMade"
+                    android:text="@string/total_shots"
+                    android:textColor="@color/darkSecondary"
+                    android:textSize="26sp"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/madeCardView"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/stats_rectangle"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.106">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/stats_rectangle"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/shotsMade"
+                    android:layout_width="125dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/shotsMadeLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/shotsMadeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:labelFor="@id/shotsMade"
+                    android:text="@string/shots_made"
+                    android:textColor="@color/darkSecondary"
+                    android:textSize="26sp"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/missedCardView"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/stats_rectangle"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.106">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/stats_rectangle"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/shotsMissed"
+                    android:layout_width="125dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/shotsMissedLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/shotsMissedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:labelFor="@id/shotsMade"
+                    android:text="@string/shots_missed"
+                    android:textColor="@color/darkSecondary"
+                    android:textSize="26sp"
+                    android:textStyle="italic"
+                    app:autoSizeMaxTextSize="28sp"
+                    app:autoSizeMinTextSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"

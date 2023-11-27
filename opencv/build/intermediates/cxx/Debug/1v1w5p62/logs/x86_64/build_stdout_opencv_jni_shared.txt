@@ -1,3 +1,3 @@
-ninja: Entering directory `C:\Users\Noah's MSI\AndroidStudioProjects\Basketball-Shot-Tracker\opencv\.cxx\Debug\1v1w5p62\x86_64'
+ninja: Entering directory `C:\Users\Noah's MSI\OneDrive\Documents\GitHub\Basketball-Shot-Tracker\opencv\.cxx\Debug\1v1w5p62\x86_64'
 [1/2] Building CXX object CMakeFiles/opencv_jni_shared.dir/dummy.cpp.o
 [2/2] Linking CXX static library libopencv_jni_shared.a

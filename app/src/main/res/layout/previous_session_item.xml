@@ -13,8 +13,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/darkSecondary"
         app:cardCornerRadius="10dp"
-        android:backgroundTint="@color/darkSecondary">
+        app:cardElevation="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,13 +37,13 @@
                 android:id="@+id/expandedChevron"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="Chevron to indicate if item is expanded or not."
                 android:rotation="90"
                 android:src="@drawable/baseline_chevron_right_24"
                 app:layout_constraintBottom_toTopOf="@+id/expandableLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/accent"
-                android:contentDescription="Chevron to indicate if item is expanded or not." />
+                app:tint="@color/accent" />
 
             <ImageView
                 android:id="@+id/highlightStar"

@@ -7,12 +7,9 @@
     tools:context=".ui.history.HistoryFragment"
     android:orientation="vertical">
 
-    <ExpandableListView
-        android:id="@+id/listStats"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/historyRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/accent"
-        android:dividerHeight="2dp">
-    </ExpandableListView>
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp" />
 </LinearLayout>
