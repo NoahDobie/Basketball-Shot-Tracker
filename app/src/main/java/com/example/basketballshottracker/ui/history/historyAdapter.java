@@ -1,6 +1,5 @@
 package com.example.basketballshottracker.ui.history;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.basketballshottracker.R;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieEntry;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class historyAdapter extends RecyclerView.Adapter<historyAdapter.historyVH> {
@@ -40,12 +42,18 @@ public class historyAdapter extends RecyclerView.Adapter<historyAdapter.historyV
         holder.previousMissesTextView.setText(previousSession.getMisses());
         holder.totalShotsTextView.setText(previousSession.getTotal());
 
-        Log.d(TAG, "Current List Displaying: " + previousSession.getDate() +","+ previousSession.getMakes() +","+ previousSession.getMisses() +","+ previousSession.getTotal());
-
         boolean isExpanded = previousSession.isExpanded();
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
 
         holder.chevron.setRotation(isExpanded ? -90 : 90);
+
+        int made = Integer.parseInt(previousSession.getMakes());
+        int misses = Integer.parseInt(previousSession.getMisses());
+
+        ArrayList<PieEntry> shotStats = new ArrayList<>();
+        shotStats.add(new PieEntry(made, "Made"));
+        shotStats.add(new PieEntry(misses, "Missed"));
+        HistoryChartManipulation.setChartData(holder.pieChart.getContext(), holder.pieChart, shotStats);
 
         // Set the visibility of the "star" item based on highScore
         if (previousSession.isHighScore()) {
@@ -68,6 +76,7 @@ public class historyAdapter extends RecyclerView.Adapter<historyAdapter.historyV
         TextView sessionDateTextView, previousMakesTextView, previousMissesTextView, totalShotsTextView;
         ImageView chevron, star;
         CardView historyCard;
+        PieChart pieChart;
         public historyVH(@NonNull final View view) {
             super(view);
 
@@ -81,6 +90,9 @@ public class historyAdapter extends RecyclerView.Adapter<historyAdapter.historyV
             chevron = view.findViewById(R.id.expandedChevron);
             star = view.findViewById(R.id.highlightStar);
             star.setVisibility(View.GONE);
+
+            pieChart = view.findViewById(R.id.statsChart);
+            HistoryChartManipulation.setupChart(pieChart.getContext(), pieChart);
 
             historyCard.setOnClickListener(new View.OnClickListener() {
                 @Override

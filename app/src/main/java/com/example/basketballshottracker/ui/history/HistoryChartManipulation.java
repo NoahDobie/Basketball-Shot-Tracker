@@ -1,5 +1,5 @@
 //COMP 3450: Saifullah Chandio T00657965, Jacob Harris T00657013, Noah Dobie T00661661
-package com.example.basketballshottracker;
+package com.example.basketballshottracker.ui.history;
 
 import static android.graphics.Typeface.BOLD;
 
@@ -20,26 +20,26 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
-public class ChartManipulation {
+public class HistoryChartManipulation {
 
     //Just needed to setup the chart, once setup does not need to be called again
     public static void setupChart(Context context, PieChart chart) {
         //General Format
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
-        chart.setDrawRoundedSlices(true);
+        chart.setDrawRoundedSlices(false);
         chart.getLegend().setEnabled(false);
         chart.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         //Center Hole
         chart.setDrawHoleEnabled(true);
         chart.setCenterText(context.getString(R.string.accuracy_stats));
-        chart.setCenterTextSize(24);
+        chart.setCenterTextSize(12);
         chart.setCenterTextColor(Color.WHITE);
         chart.setTransparentCircleRadius(0);
         chart.setHoleRadius(40);
         chart.setHoleColor(0);
         //Entries
-        chart.setEntryLabelTextSize(20);
+        chart.setEntryLabelTextSize(10);
         chart.setEntryLabelTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
         chart.setEntryLabelColor(Color.WHITE);
     }
@@ -53,14 +53,14 @@ public class ChartManipulation {
         //Setting colors
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(ContextCompat.getColor(context, R.color.accent));
-        colors.add(ContextCompat.getColor(context, R.color.darkSecondary));
+        colors.add(ContextCompat.getColor(context, R.color.darkPrimary));
         PieDataSet dataSet = new PieDataSet(shotStats, "");
         dataSet.setColors(colors);
 
         PieData data = new PieData(dataSet);
         data.setDrawValues(true);
         data.setValueFormatter(new PercentFormatter(chart));
-        data.setValueTextSize(26f);
+        data.setValueTextSize(12f);
         data.setValueTypeface(Typeface.defaultFromStyle(BOLD));
         data.setValueTextColor(Color.WHITE);
 

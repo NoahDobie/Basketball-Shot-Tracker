@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.basketballshottracker.ChartManipulation;
 import com.example.basketballshottracker.Data;
 import com.example.basketballshottracker.R;
 import com.example.basketballshottracker.databinding.FragmentStatsBinding;
@@ -50,7 +49,7 @@ public class StatsFragment extends androidx.fragment.app.Fragment {
 
         //Create chart for statistics screen
         statsChart = root.findViewById(R.id.statsChart);
-        ChartManipulation.setupChart(getActivity(), statsChart);
+        StatsChartManipulation.setupChart(getActivity(), statsChart);
 
         //Set textViews for stats display
         //Makes, Misses, Total
@@ -155,7 +154,7 @@ public class StatsFragment extends androidx.fragment.app.Fragment {
             ArrayList<PieEntry> shotStats = new ArrayList<>();
             shotStats.add(new PieEntry(made, "Made"));
             shotStats.add(new PieEntry(missed, "Missed"));
-            ChartManipulation.setChartData(getActivity(), statsChart, shotStats);
+            StatsChartManipulation.setChartData(getActivity(), statsChart, shotStats);
         }
         // Get first position in array for makes
         madeText.setText(String.valueOf(made));
