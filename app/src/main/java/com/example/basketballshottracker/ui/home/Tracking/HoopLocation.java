@@ -22,10 +22,6 @@ public class HoopLocation implements View.OnTouchListener {
     private int frameWidth;
     private int frameHeight;
 
-    private double reverseMap(double value, double inMin, double inMax, double outMin, double outMax) {
-        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-    }
-
     public HoopLocation(CameraBridgeViewBase cameraView) {
         layoutWidth = cameraView.getWidth();
         layoutHeight = cameraView.getHeight();
@@ -74,7 +70,6 @@ public class HoopLocation implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-
         if (isHoopSet) {
             return false;
         }
@@ -82,18 +77,11 @@ public class HoopLocation implements View.OnTouchListener {
         isHoopSet = true;
         Log.d(TAG, "IS HOOP SET = " + isHoopSet());
 
-        double touchX = event.getX();
-        double touchY = event.getY();
-        Log.d(TAG, "Touch X =  " + touchX + ", Touch Y = " + touchY);
+        // Adjust coordinates to match OpenCV's coordinate system
+        double x = event.getY();  // Swap X and Y, and reverse Y
+        double y = event.getX();  // Swap X and Y
 
-        // Reverse mapping touch coordinates to frame dimensions with an adjustment
-        double frameX = reverseMap(touchX, 0, layoutWidth, frameWidth, 0);
-        double frameY = reverseMap(touchY, 0, layoutHeight, 0, frameHeight);
-
-        // Correct for the hoop size and adjust for the top-left position of the hoop
-        double hoopSize = 100;
-        double x = frameX - hoopSize / 2; // Adjusting for hoop size
-        double y = frameY - hoopSize / 2; // Adjusting for hoop size
+        Log.d(TAG, "Touch X =  " + x + ", Touch Y = " + y);
 
         // User taps the screen to set the location
         setHoopRect(x, y);

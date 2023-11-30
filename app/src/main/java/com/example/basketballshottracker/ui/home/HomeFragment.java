@@ -23,6 +23,7 @@ import com.example.basketballshottracker.ui.home.Tracking.ObjectDetection;
 
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
@@ -56,6 +57,7 @@ public class HomeFragment extends Fragment {
         TextView madeLabel = view.findViewById(R.id.shotsMadeLabel_home);
         TextView missedLabel = view.findViewById(R.id.shotsMissedLabel_home);
         View stopSection = view.findViewById(R.id.view_shootingActive);
+
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,8 +122,8 @@ public class HomeFragment extends Fragment {
                 }
 
                 // Flips camera for mobile use
-//                Core.rotate(frame, frame, Core.ROTATE_90_COUNTERCLOCKWISE);
-//                Core.flip(frame, frame, 1);
+                Core.rotate(frame, frame, Core.ROTATE_180);
+                Core.flip(frame, frame, 1);
                 return frame;
             }
         });

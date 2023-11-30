@@ -79,12 +79,12 @@ public class ObjectDetection {
             previousCenter = center;
 
             // Draw a circle around the basketball
-            Imgproc.circle(frame, center, (int) radius[0], new Scalar(0, 255, 0), 2);
+            Imgproc.circle(frame, center, (int) radius[0], new Scalar(0, 255, 0), 4);
 
             // Calculate the center of the circle
             Point circleCenter = new Point(center.x, center.y);
             // Draw a point in the center
-            Imgproc.circle(frame, circleCenter, 5, new Scalar(255, 0, 0), 5);
+            Imgproc.circle(frame, circleCenter, 5, new Scalar(255, 0, 0), 6);
         } else {
             // If no basketball is detected, reset the previousCenter
             previousCenter = null;
